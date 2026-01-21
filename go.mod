@@ -9,11 +9,11 @@ require (
 	github.com/onsi/gomega v1.39.0
 	github.com/stretchr/testify v1.11.1
 	go.uber.org/zap v1.27.1
-	k8s.io/api v0.34.2
-	k8s.io/apimachinery v0.34.2
+	k8s.io/api v0.34.3
+	k8s.io/apimachinery v0.34.3
 	k8s.io/client-go v1.5.2
-	sigs.k8s.io/cluster-api v1.12.1
-	sigs.k8s.io/controller-runtime v0.22.4
+	sigs.k8s.io/cluster-api v1.12.2
+	sigs.k8s.io/controller-runtime v0.22.5
 )
 
 require (
@@ -150,10 +150,10 @@ require (
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/apiextensions-apiserver v0.34.2 // indirect
-	k8s.io/apiserver v0.34.2 // indirect
+	k8s.io/apiextensions-apiserver v0.34.3 // indirect
+	k8s.io/apiserver v0.34.3 // indirect
 	k8s.io/cli-runtime v0.34.2 // indirect
-	k8s.io/component-base v0.34.2 // indirect
+	k8s.io/component-base v0.34.3 // indirect
 	k8s.io/component-helpers v0.34.2 // indirect
 	k8s.io/controller-manager v0.34.2 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
