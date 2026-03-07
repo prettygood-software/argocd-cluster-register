@@ -6,7 +6,7 @@ require (
 	github.com/argoproj/argo-cd/v3 v3.2.6
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/onsi/ginkgo v1.16.5
-	github.com/onsi/gomega v1.39.0
+	github.com/onsi/gomega v1.39.1
 	github.com/stretchr/testify v1.11.1
 	go.uber.org/zap v1.27.1
 	k8s.io/api v0.35.0
@@ -131,13 +131,13 @@ require (
 	go.opentelemetry.io/otel v1.38.0 // indirect
 	go.opentelemetry.io/otel/trace v1.38.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
-	golang.org/x/crypto v0.46.0 // indirect
-	golang.org/x/net v0.47.0 // indirect
+	golang.org/x/crypto v0.47.0 // indirect
+	golang.org/x/net v0.49.0 // indirect
 	golang.org/x/oauth2 v0.33.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
-	golang.org/x/sys v0.39.0 // indirect
-	golang.org/x/term v0.38.0 // indirect
-	golang.org/x/text v0.32.0 // indirect
+	golang.org/x/sys v0.40.0 // indirect
+	golang.org/x/term v0.39.0 // indirect
+	golang.org/x/text v0.33.0 // indirect
 	golang.org/x/time v0.13.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.5.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250825161204-c5933d9347a5 // indirect
