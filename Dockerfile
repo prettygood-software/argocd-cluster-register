@@ -1,29 +1,33 @@
 # Build the manager binary
-#FROM golang:1.21 as builder
+FROM --platform=$BUILDPLATFORM golang:1.25 AS builder
 
-#WORKDIR /workspace
-# Copy the Go Modules manifests
-#COPY go.mod go.mod
-#COPY go.sum go.sum
-# cache deps before building and copying source so that we don't need to re-download as much
-# and so that source changes don't invalidate our downloaded layer
-#RUN go mod download
+ARG TARGETARCH
+ARG VERSION=dev
+ARG SHA=unknown
 
-# Copy the go source
-#COPY main/main.go main/main.go
-#COPY api/ api/
-#COPY cni/ cni/
-#COPY conf/ conf/
-#COPY controllers/ controllers/
+WORKDIR /workspace
 
-# Build
-#RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o manager main/main.go
+# Cache deps
+COPY go.mod go.sum ./
+RUN go mod download
 
-# Use distroless as minimal base image to package the manager binary
-# Refer to https://github.com/GoogleContainerTools/distroless for more details
+# Copy source
+COPY main/ main/
+COPY controllers/ controllers/
+COPY cni/ cni/
+COPY conf/ conf/
+COPY version.go version.go
+
+# Build for the target architecture
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=${TARGETARCH} go build \
+    -trimpath -installsuffix cgo \
+    -ldflags "-s -w -X github.com/hyperspike/argocd-cluster-register.Version=${VERSION} -X github.com/hyperspike/argocd-cluster-register.Commit=${SHA}" \
+    -o manager main/main.go
+
+# Use distroless as minimal base image
 FROM gcr.io/distroless/static:nonroot
 WORKDIR /
-COPY manager .
+COPY --from=builder /workspace/manager .
 USER 65532:65532
 
 ENTRYPOINT ["/manager"]
