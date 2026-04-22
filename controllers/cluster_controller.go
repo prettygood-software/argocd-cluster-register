@@ -103,7 +103,7 @@ func (r *ClusterReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 			return ctrl.Result{}, err
 		}
 	}
-	if cluster.Status.Phase != Deleting && *cluster.Status.Initialization.ControlPlaneInitialized {
+	if !r.Config.DisableCNI && cluster.Status.Phase != Deleting && *cluster.Status.Initialization.ControlPlaneInitialized {
 		if err := r.ensureCNI(ctx, req, cluster); err != nil {
 			return ctrl.Result{}, err
 		}

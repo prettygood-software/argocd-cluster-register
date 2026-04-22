@@ -39,6 +39,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
 	appsv1alpha1 "github.com/argoproj/argo-cd/v3/pkg/apis/application/v1alpha1"
+	addonsv1beta2 "sigs.k8s.io/cluster-api/api/addons/v1beta2"
 	capiv1beta2 "sigs.k8s.io/cluster-api/api/core/v1beta2"
 
 	"github.com/hyperspike/argocd-cluster-register/conf"
@@ -57,6 +58,7 @@ func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
 	utilruntime.Must(appsv1alpha1.AddToScheme(scheme))
+	utilruntime.Must(addonsv1beta2.AddToScheme(scheme))
 	utilruntime.Must(capiv1beta2.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
 }
