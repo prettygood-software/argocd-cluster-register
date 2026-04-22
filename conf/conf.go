@@ -7,9 +7,11 @@ import (
 )
 
 type Config struct {
-	RoleARN  string `envconfig:"ROLE_ARN"`
-	Project  string
-	Projects []string
+	RoleARN        string `envconfig:"ROLE_ARN"`
+	Project        string
+	Projects       []string
+	ArgoNamespace  string `envconfig:"ARGOCD_NAMESPACE" default:"argocd"`
+	ClusterNamespace string `envconfig:"CLUSTER_NAMESPACE" default:"capi-clusters"`
 }
 
 func ParseConfig() (*Config, error) {
