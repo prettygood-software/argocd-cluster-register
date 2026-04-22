@@ -279,14 +279,6 @@ func (r *ClusterReconciler) ensureSecret(
 				"argocd.argoproj.io/secret-type": "cluster",
 				"cluster.x-k8s.io/cluster-name":  clusterName,
 			},
-			OwnerReferences: []metav1.OwnerReference{
-				{
-					APIVersion: cluster.APIVersion,
-					Kind:       cluster.Kind,
-					Name:       cluster.Name,
-					UID:        cluster.UID,
-				},
-			},
 		},
 		StringData: map[string]string{
 			"name":   clusterName,
