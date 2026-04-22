@@ -7,11 +7,12 @@ import (
 )
 
 type Config struct {
-	RoleARN        string `envconfig:"ROLE_ARN"`
-	Project        string
-	Projects       []string
-	ArgoNamespace  string `envconfig:"ARGOCD_NAMESPACE" default:"argocd"`
+	RoleARN          string `envconfig:"ROLE_ARN"`
+	Project          string
+	Projects         []string
+	ArgoNamespace    string `envconfig:"ARGOCD_NAMESPACE" default:"argocd"`
 	ClusterNamespace string `envconfig:"CLUSTER_NAMESPACE" default:"capi-clusters"`
+	DisableCNI       bool   `envconfig:"DISABLE_CNI" default:"false"`
 }
 
 func ParseConfig() (*Config, error) {
